@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+
+{% block body %}
+<div class="messages__index">
+    <div class="_container">
+    <div class="margin_top_index">
+    <div>
+        {% if get_flashed_messages() %}
+        <div>
+            {% for mess in get_flashed_messages(category_filter=['error']) %}
+                <h5 class="account__alert-register alert-danger">{{mess}}</h5>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div>
+        {% if get_flashed_messages() %}
+        <div>
+            {% for mess in get_flashed_messages(category_filter=['success']) %}
+                <h5 class="account__alert-register alert-success">{{mess}}</h5>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    </div>
+</div>
+</div>
+<div class="index__banner__container _container">
+    <div class="main-banner">
+        <a href="{{ url_for('brand', brandid=1, brandname='Jordan') }}"><img src="../static/img/banner/1495461386jordan_banner-1920x585.jpg" alt=""></a>
+    </div>
+    <div class="two-banner__one">
+        <a href="{{ url_for('brand', brandid=7, brandname='Puma') }}"><img src="../static/img/banner/1593319070_982d2476b54cb47c4cb66.jpg" alt=""></a>
+    </div>
+    <div class="two-banner__two">
+        <a href="{{ url_for('brand', brandid=8, brandname='Nike') }}"><img src="../static/img/banner/hvjofEAnd70.jpg" alt=""></a>
+    </div>
+</div>
+</div>
+{% endblock %}

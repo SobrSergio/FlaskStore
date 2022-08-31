@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Корзина{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="productbrand">
+        <div class="productbrand__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('allproductuser') }}">Вся обувь</a> » Корзина</div>
+            <div class="main-register__title">Корзина</div>
+
+            <div class="productcart">
+                {% for product in products %}
+                <div class="productcart__row">
+                    <div class="productcart-main">
+                        <div class="productcart-main__img">
+                            <img src="{{url_for('static', filename='img/products/' + product['link'] + '.jpg')}}">
+                        </div>
+                        <div class="productcart-main__text">
+                            <div class="productcart-main__title">{{product['name']}} </div>
+                            <div class="productcart-main__price">{{product['price']}} руб.</div>
+                            <div class="productcart-main__qty">Количество: {{ product['qty'] }}</div>
+                            <div class="productcart-main__qty">Размер: {{ product['size'] }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="productcart__form">
+                    <div class="account__form-submit form-submit__login">
+                        <div class="sumprice">Общая сумма: {{ sumprice }}</div>
+                    </div>
+                    <div class="account__form-submit form-submit__login">
+                        <form action="" method="post">
+                        <button class="form-submit__submit form-submit__profile_btn margin_cart-btn">Очистит. корзину</button>
+                        </form>
+                    </div>
+                    <div class="account__form-submit form-submit__login">
+                        <a href="{{ url_for('order') }}" class="form-submit__submit form-submit__profile_btn ">Оформить заказ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

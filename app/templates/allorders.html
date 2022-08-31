@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Корзина{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="productbrand">
+        <div class="productbrand__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('admin') }}">Администрирование</a> »Все заказы</div>
+            <div class="main-register__title">Все заказы</div>
+
+            <div class="productcart">
+                {% for order in orders %}
+                <div class="productcart__row">
+                    <div class="productcart-main">
+                        <div class="productcart-main__text">
+                            <div class="productcart-main__title">Заказ: </div>
+                            <div class="productcart-main__price">Имя заказчика: {{ order.username }} </div>
+                            <div class="productcart-main__price">Почта: {{ order.email }}</div>
+                            <div class="productcart-main__qty">Телефон: {{ order.phone }}</div>
+                            <div class="productcart-main__qty">Город: {{ order.city }}</div>
+                            <div class="productcart-main__qty">Адрес: {{ order.address }}</div>
+                            <div class="productcart-main__qty">Индекс: {{ order.index }}</div>
+                            <div class="productcart-main__qty">Товар: {{ order.products[2:-2] }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Администрирование{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="main-register main">
+        <div class="main-register__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('admin') }}">Администрирование</a> » Все категории</div>
+            <div class="main-register__title">Все категории</div>
+
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['error']) %}
+                                <h5 class="account__alert-register alert-danger alert-danger__login">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['success']) %}
+                                <h5 class="account__alert-register alert-success alert-success__admin">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="admin__menu admin">
+                        <div class="admin__row">
+                            <div class="allbrand">
+                                {% for category in categorys %}
+                                    <a href="{{ url_for('categorybrand', brandname=category.brand_name, brandid=category.brand_id, categoryid=category.id) }}" class="allbrand__text"><div>{{ category.name }}</div></a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

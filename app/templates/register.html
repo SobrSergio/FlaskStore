@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="main-register main">
+        <div class="main-register__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('index' ) }}">Главная страница</a> » Регистрация</div>
+            <div class="main-register__title">Регистрация</div>
+
+            <div class="main-register__account account">
+                <div class="account-menu">
+                    <div class="account-menu__radio"><a href="{{ url_for('login') }}">Вход </a> Регистрация </div>
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['error']) %}
+                                <h5 class="account__alert-register alert-danger">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['success']) %}
+                                <h5 class="account__alert-register alert-success">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <form action="", method="post">
+                        {{ form.hidden_tag() }}
+
+                        <div class="account__form form-email">
+                            <label for="" class="form-email__label form__label">Адрес электронной почты</label>
+                            {{form.email(class="form-email__input form__input", placeholder="Почта") }}
+                        </div>
+
+                        <div class="account__form form-username">
+                            <label for="" class="form-username__label form__label">Имя пользователя</label>
+                            {{form.username(class="form-username__input form__input", placeholder="Логин") }}
+                        </div>  
+
+                        <div class="account__form form-password">
+                            <label for="" class="form-password__label form__label">Пароль</label>
+                            {{form.password(class="form-password__input form__input", placeholder="Пароль",  id="floatingInput") }}
+                        </div>  
+                        <div class="account__form-submit">
+                            {{ form.submit(class="form-submit__submit") }}
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ brandname }}{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="productbrand">
+        <div class="productbrand__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('allproductuser') }}">Вся обувь</a> » {{ brandname }}</div>
+            <div class="main-register__title">{{ brandname }}</div>
+            
+            
+            <div class="productbrand__row">
+                <div class="filter-catalog">Модели: </div>
+                {% for category in categorys %}
+                <a href="{{ url_for('categorybrand', brandname=brandname, brandid=brandid, categoryid=category.id) }}"><div class="productbrand__filter">{{ category.name }}</div></a>
+                {% endfor %}
+                
+            </div>
+            <hr>
+                <div class="productbrand__products">
+                {% for product in pages.items %}
+                    <a href="{{ url_for('productpage', productname=product.link, productid=product.id) }}" class="product__link"><div class="products_cart"><img src="{{url_for('static', filename='img/products/' + product.link + '.jpg')}}" alt={{product.name}}><div class="products__name">{{ product.name }} - {{ product.price }} руб.</div></div></a>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="pagination:container">
+                    <a href="/product/brand/{{brandname}}/{{brandid}}?page={{pages.prev_num}}"><div {% if not pages.has_prev %} class="pagination:numberdisabled arrow" {% endif %} class="pagination:number arrow">
+                        <svg width="18" height="18">
+                          <use xlink:href="#left" />
+                        </svg>
+                      </div></a>
+                      
+                      {% for i in pages.iter_pages() %}
+                      <a class="page-link" href="/product/brand/{{brandname}}/{{brandid}}?page={{i}}"><div class="pagination:number" {% if i == pages.page %} class="pagination:number pagination:active" {% endif %}>
+                        {{i}}
+                      </div></a>
+                      {% endfor%}
+                    
+                      <a href="/product/brand/{{brandname}}/{{brandid}}?page={{pages.next_num}}"><div {% if not pages.has_next %} class="pagination:numberdisabled arrow" {% endif %} class="pagination:number arrow">
+                        <svg width="18" height="18">
+                          <use xlink:href="#right" />
+                        </svg>
+                      </div></a>
+                    
+                    <svg class="hide">
+                      <symbol id="left" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></symbol>
+                      <symbol id="right" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></symbol>
+                    </svg>
+                  </div>   
+                </div>
+</div>
+{% endblock %}

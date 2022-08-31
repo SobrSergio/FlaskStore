@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}Заказ{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="main-register main">
+        <div class="main-register__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('cart') }}">Корзина</a> » Заказ</div>
+            <div class="productpage__flash">
+                <div>
+                    {% if get_flashed_messages() %}
+                    <div>
+                        {% for mess in get_flashed_messages(category_filter=['error']) %}
+                            <h5 class="account__alert-register alert-danger alert-add">{{mess}}</h5>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div>
+                    {% if get_flashed_messages() %}
+                    <div>
+                        {% for mess in get_flashed_messages(category_filter=['success']) %}
+                            <h5 class="account__alert-register alert-success">{{mess}}</h5>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                </div>
+                <div class="order">
+                    <form action="", method="post" enctype="multipart/form-data" id="formId">
+                        {{ form.hidden_tag() }}
+                    <div class="order__container">
+                        <div class="order-main">
+                            <div class="order-main__form">
+                                <div class="order-main__form-two">
+                                    <div class="margin-order">
+                                        <label for="" class="form-email__label form__label">Имя</label>
+                                        {{form.username(class="form-email__input form__input", placeholder="Имя", value=current_user.username) }}
+                                    </div>
+                                    <div class="margin-order">
+                                        <label for="" class="form-email__label form__label">Адрес электронной почты</label>
+                                        {{form.email(class="form-email__input form__input", placeholder="Почта", value=current_user.email) }}
+                                    </div>
+                                </div>
+                                <div class="order-main__form-two">
+                                    <div class="margin-order">
+                                        <label for="" class="form-email__label form__label">Номер телефона</label>
+                                        {{form.phone(class="form-email__input form__input", placeholder="Номер телефона", value=current_user.phone) }}
+                                    </div>
+                                    <div class="margin-order">
+                                        <label for="" class="form-email__label form__label">Город</label>
+                                        {{form.city(class="form-email__input form__input", placeholder="Город", value=current_user.city) }}
+                                    </div>
+                                </div>
+                                <div class="order-main__form-two display_none">
+                                    <div class="margin-order">
+                                        <label for="" class="form-email__label form__label">Точный адрес</label>
+                                        {{form.address(class="form-email__input form__input", placeholder="Точный адрес") }}
+                                    </div>
+                                    <div class="margin-order">
+                                        <label for="" class="form-email__label form__label">Индекс</label>
+                                        {{form.index(class="form-email__input form__input", placeholder="Индекс") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-order">
+                            <div class="order__item">
+                                <div class="order__item__title">Товары</div>
+                                {% for product in products %}
+                                <div class="product_row">
+                                    <div class="order__item-name">{{ product['name'] }}</div>
+                                    <div class="order__item-name">{{ product['price'] }}</div>
+                                </div>
+                                <div class="order__sum">Общая сумма: {{ sumprice }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="order__deliveryorshop">
+                                <div class="order__item__title">Доставка</div>
+                                <input type="radio" name="delivery" value="Доставка курьером +300 рублей"checked>
+                                <label for="delivery1">Доставка курьером +300 рублей</label>
+                                <br><br>
+                                <input type="radio" name="delivery" value="Самовызов Охотный ряд">
+                                <label for="delivery2">Самовызов Охотный ряд</label>
+                                <br><br>
+                                <input type="radio" name="delivery" value="Самовызов Мичуренский проспект">
+                                <label for="delivery3">Самовызов Мичуренский проспект</label>
+                                <br><br>
+                            </div>
+                            <div class="order__pay">
+                                <div class="order__item__title">Оплата</div>
+                                <input checked type="radio" name="pay" value="Оплата банковской картой">
+                                <label for="pay1">Оплата банковской картой</label>
+                                <br><br>
+                                <input type="radio" name="pay" value="Оплата наличными">
+                                <label for="pay2">Оплата наличными</label>
+                                <br><br><br><br>
+                            </div>
+                            <div class="order__submit">
+                                {{ form.submit(class="form-submit__submit") }}
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

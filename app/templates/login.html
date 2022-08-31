@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Вход{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="main-register main">
+        <div class="main-register__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('index' ) }}">Главная страница</a> » Вход</div>
+            <div class="main-register__title">Вход</div>
+
+            <div class="main-register__account account">
+                <div class="account-menu">
+                    <div class="account-menu__radio radio__login">Вход <a href="{{ url_for('register') }}" class="account-menu__login-button-register">Регистрация</a></div>
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['error']) %}
+                                <h5 class="account__alert-register alert-danger alert-danger__login">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['success']) %}
+                                <h5 class="account__alert-register alert-success alert-success__login">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['email_reset']) %}
+                                <h5 class="account__alert-register alert-success email_reset">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <form action="", method="post">
+                        {{ form.hidden_tag() }}
+
+                        <div class="account__form form-email">
+                            <label for="" class="form-email__label form__label">Почта или имя пользователя</label>
+                            {{form.usernameoremail(class="form-email__input form__input", placeholder="Почта") }}
+                        </div>
+
+                        <div class="account__form form-password">
+                            <label for="" class="form-password__label form__label">Пароль</label>
+                            {{form.password(class="form-password__input form__input", placeholder="Пароль",  id="floatingInput") }}
+                        </div>  
+                        
+                        <div class="account__form-submit form-submit__login">
+                            {{ form.submit(class="form-submit__submit form-submit__login_btn") }}
+                        </div>
+                        <div class="menu__rememberandreserp">
+                        <div class="account__remember-me">
+                            {{form.remember_me(class="remember-me__user") }}
+                            <label class="remember-me__label">Запомнить меня</label>
+                        </div>
+                        <div class="account__reset__password">
+                            <div class="main-register__menu"><a href="{{ url_for('reset_request') }}" class="reset__password__a">Забыли пароль?</a></div>
+                        </div>
+                    </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавление категории{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="main-register main">
+        <div class="main-register__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('admin') }}">Администрирование</a> » Добавление категории</div>
+            <div class="main-register__title">Добавление категории</div>
+
+            <div class="main-register__account account">
+                <div class="account-menu main-register__reset">
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['error']) %}
+                                <h5 class="account__alert-register alert-danger alert-danger__login">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['success']) %}
+                                <h5 class="account__alert-register alert-success">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <form action="", method="post">
+                        {{ form.hidden_tag() }}
+
+                        <div class="account__form form-email">
+                            <label for="" class="form-email__label form__label email__reset__form">Введите название категории: </label>
+                            {{form.name(class="form-email__input form__input", placeholder="Категория") }}
+                        </div>
+
+                        <div class="account__form form-email">
+                            <label for="brand" class="form-email__label form__label email__reset__form">Выберите бренд для категории:</label>
+                            <select name="brand" id="brand" class="form-email__product" required>
+                                {% for brand in brands %}
+                                    <option value="{{brand.id}}"> {{brand.name}} </option>
+                                {% endfor %}
+                            </select><br>
+                        </div>
+                        
+                        <div class="account__form-submit form-submit__login">
+                            {{ form.submit(class="form-submit__submit form-submit__addbrand_btn") }}
+                        </div>
+                    </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

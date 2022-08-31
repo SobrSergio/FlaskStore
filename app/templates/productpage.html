@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавление бренда{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="main-register main">
+        <div class="main-register__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('allproductuser') }}">Все кроссовки</a> » {{ product.name }}</div>
+            <div class="productpage__flash">
+                <div>
+                    {% if get_flashed_messages() %}
+                    <div>
+                        {% for mess in get_flashed_messages(category_filter=['error']) %}
+                            <h5 class="account__alert-register alert-danger alert-add">{{mess}}</h5>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <div>
+                    {% if get_flashed_messages() %}
+                    <div>
+                        {% for mess in get_flashed_messages(category_filter=['success']) %}
+                            <h5 class="account__alert-register alert-success">{{mess}}</h5>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                </div>
+            <div class="register__account">
+                    <div class="productpage">
+                        <div class="left-column">
+                            <img data-image="black" src="{{url_for('static', filename='img/products/' + product.link + '.jpg')}}" alt={{product.name}}>
+                        </div>
+                        <div class="right-column">
+                            <div class="product-description">
+                                <h1>{{ product.name }}</h1>
+                                <p>{{ product.description }}</p>
+                            </div>
+                            <div class="product-description">
+                                <form action="" method="POST">
+                                <div class="product-size">Размеры:
+                                    <select name="size" id="brand" class="form-email__product" required>
+                                        {% for size in sizes %}
+                                            <option value="{{ size }}"> {{ size }} </option>
+                                        {% endfor %}
+                                    </select>
+                                </div> 
+                                <div class="product-line"></div>
+                                <div class="product-price">
+                                    <span clas>{{ product.price }} руб.</span>
+                                        <input name='qty' type="hidden" min="1" max="20" value="1">
+                                        <button name='cartbtn' type="submit" class="menu-button__link margin_cart-btn1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(82, 81, 81, 1);transform: msFilter"><path d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921zM17.307 15h-6.64l-2.5-6h11.39l-2.25 6z"></path><circle cx="10.5" cy="19.5" r="1.5"></circle><circle cx="17.5" cy="19.5" r="1.5"></circle></svg></button>
+                                    </div>
+                            </div>
+                            </form>
+                        </div>
+                </div>
+            </div>
+                <div class="product-back">
+                    <div class="product-back__title">Возврат и обмен:</div>
+                    <div class="product-back__text">
+                        Перед отправкой обмена обязательно свяжитесь с нашим менеджером sneakshop.ru@gmail.com
+                        </div>
+                </div>
+                <div class="product-line"></div>
+                <div class="product-back">
+                    <div class="product-back__title">Доставка:</div>
+                    <div class="product-back__text">
+                        Доставка по Москве<br><br>
+
+                        Курьерской службой RedExpress в пределах МКАД<br>
+                        Доставка курьером в удобное для вас время в пределах МКАД 200 руб<br>
+                        Срочная доставка день в день в пределах МКАД (при заказе до 15:00)<br><br>
+
+                        Доставка по России<br><br>
+
+                        Почта России. Срок доставки от 5 до 15 дней<br>
+                        СДЕК. Сроки доставки 2-10 дней
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

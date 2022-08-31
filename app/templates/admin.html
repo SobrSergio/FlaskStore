@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Администрирование{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="main-register main">
+        <div class="main-register__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('index' ) }}">Главная страница</a> » Администрирование</div>
+            <div class="main-register__title">Администрирование</div>
+
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['error']) %}
+                                <h5 class="account__alert-register alert-danger alert-danger__login">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        {% if get_flashed_messages() %}
+                        <div>
+                            {% for mess in get_flashed_messages(category_filter=['success']) %}
+                                <h5 class="account__alert-register alert-success alert-success__admin">{{mess}}</h5>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="admin__menu admin">
+                        <div class="admin__row">
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link"><a href="{{ url_for('addbrand') }}">Добавление бренда</a></li>
+                            </ul>
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link margin-for-admin_list"><a href="{{ url_for('deletebrand') }}">Удаление бренда</a></li>
+                            </ul>
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link"><a href="{{ url_for('addcategory') }}">Добавление категории</a></li>
+                            </ul>
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link margin-for-admin_list"><a href="{{ url_for('deletecategory') }}">Удаление категории</a></li>
+                            </ul>
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link"><a href="{{ url_for('addproduct') }}">Добавление продукта</a></li>
+                            </ul>
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link"><a href="{{ url_for('editproduct') }}">Изменение продукта</a></li>
+                            </ul>
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link margin-for-admin_list"><a href="{{ url_for('deleteproduct') }}">Удаление продукта</a></li>
+                            </ul>
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link"><a href="{{ url_for('allbrand') }}">Все бренды</a></li>
+                            </ul>
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link"><a href="{{ url_for('allcategory') }}">Все категории</a></li>
+                            </ul>
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link margin-for-admin_list"><a href="{{ url_for('allproduct') }}">Все продукты</a></li>
+                            </ul>
+                            <ul class="admin-menu__list">
+                                <li class="admin-menu__link "><a href="{{ url_for('allorders') }}">Заказы Пользователей!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

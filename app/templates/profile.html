@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Учетная запись{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+    <div class="main-register main">
+        <div class="main-register__container _container">
+            <div class="main-register__menu"><a href="{{ url_for('index' ) }}">Главная страница</a> » Профиль</div>
+            <div class="main-register__title">Профиль <a href="{{ url_for('logout') }}">Выйти</a></div>
+
+            <div class="messages__profile">
+                {% if get_flashed_messages() %}
+                <div>
+                    {% for mess in get_flashed_messages(category_filter=['error']) %}
+                        <h5 class="account__alert-register alert-danger">{{mess}}</h5>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="messages__profile">
+                {% if get_flashed_messages() %}
+                <div>
+                    {% for mess in get_flashed_messages(category_filter=['success']) %}
+                        <h5 class="account__alert-register alert-success">{{mess}}</h5>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="profile__body">
+                <div class="profile__row">
+                <div class="profile__menu">
+                    <div class="profile__name-email">
+                        {% if current_user.is_authenticated and current_user.admin_role == 1 : %}
+                            <div class="profile-admin">
+                                <a href="{{ url_for('admin') }}" class="profile-admin__link">Администрирование</a>
+                            </div>
+                            {% endif %}
+                        <div class="name-email__title">Данные.</div>
+                        <form action="", method="post" enctype="multipart/form-data">
+                            {{ form.hidden_tag() }}
+                            <div class="name-email__name">
+                                <label class="label__profile">Имя: </label>
+                                <div>{{ form.username(class="input__profile form-email__input form__input", value=user.username ) }}</div>
+                            </div>
+                            <div class="name-email__email">
+                                <label class="label__profile">Почта: </label>
+                                <div>{{ form.email(class="input__profile form-email__input form__input", value=user.email ) }}</div>
+                            </div>
+                            <div class="name-email__phone">
+                                <label class="label__profile">Телефон: </label>
+                                {% if user.phone %}
+                                    <div >{{ form.phone(class="input__profile form-email__input form__input", value=user.phone ) }}</div>
+                                {% else %}
+                                <div >{{ form.phone(class="input__profile form-email__input form__input", placeholder='Введите номер телефона' ) }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="name-email__addres">
+                                <label class="label__profile">Город: </label>
+                                {% if user.city %}
+                                    <div>{{ form.city(class="input__profile form-email__input form__input", value=user.city ) }}</div>
+                                {% else %}
+                                    <div>{{ form.city(class="input__profile form-email__input form__input", placeholder='Введите адрес' ) }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="account__form-submit form-submit__login">
+                                {{ form.submit(class="form-submit__submit form-submit__profile_btn") }}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile__body">
+                <div class="profile__menu">
+                        <div class="profile__orders">
+                            <div class="profile__orders__title">Заказы.</div>
+                            {% for order in orders %}
+                            <div class="orders__body">{{ order.products[2:-2] }}, {{ order.delivery }}, {{ order.pay }}</div>
+                            {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+{% endblock %}
