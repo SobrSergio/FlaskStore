@@ -5,8 +5,8 @@
 
 <h3>Запуск</h3>
 <div 'display: flex;'>
-<img src="https://user-images.githubusercontent.com/107222527/188508055-e23cc954-ce81-4f80-9ba2-590aea319878.png" width='990'>
-<img src="https://user-images.githubusercontent.com/107222527/188508055-e23cc954-ce81-4f80-9ba2-590aea319878.png" width='990'>
+<img src="https://user-images.githubusercontent.com/107222527/188508055-e23cc954-ce81-4f80-9ba2-590aea319878.png" width='600'>
+<img src="https://user-images.githubusercontent.com/107222527/188508055-e23cc954-ce81-4f80-9ba2-590aea319878.png" width='600'>
 </div>
 
 
