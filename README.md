@@ -5,7 +5,7 @@
 
 <hr>
 
-<h3>Скриншот</h3>
+<h3>Скриншо</h3>
 
 <img src="https://user-images.githubusercontent.com/107222527/188508055-e23cc954-ce81-4f80-9ba2-590aea319878.png" width=''>
 
