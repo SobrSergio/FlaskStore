@@ -10,7 +10,7 @@ from app import mail
 def send_reset_email(user): #принимается пользователь которому нужно отправить письмо
     token = user.get_reset_token() #использвует функцию создающую токен. (models.py)
     msg = Message('Запрос на смену пароля',
-                  sender='SneakShop.ru@gmail.com', #отправител
+                  sender='youremail@gmail.com', #отправител
                   recipients=[user.email]) #кому отправить
     msg.body = f"""
     Здравствуйте, {user.username}.

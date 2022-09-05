@@ -10,6 +10,6 @@ class Configuration():
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = 'SneakShop.ru@gmail.com'
+    MAIL_USERNAME = 'youremail@gmail.com'
     MAIL_PASSWORD = 'passwordforyouremail'
-    MAIL_DEFAULT_SENDER = 'SneakShop.ru@gmail.com'
+    MAIL_DEFAULT_SENDER = 'youremail@gmail.com'
