@@ -23,6 +23,9 @@
 
 <h1>Запуск проекта</h1>
 
+<p>1. Ввести свои данные в config (Подключить базу данных, ввести почту для admin). БЕЗ БАЗЗЫ ДАННЫХ САЙТ РАБОТАТЬ НЕ БУДЕТ</p>
+
+<p>2. Поменять sender в utils.py на вашу почту admin.</p>
 
 <p>Cоздать и активировать виртуальное окружение:</p>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>python -m venv env
