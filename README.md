@@ -15,7 +15,7 @@
 
 1. **Клонируйте репозиторий** на ваш локальный компьютер:
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/SobrSergio/SneakerStore_on_flask
     ```
 
 2. **Установите все зависимости** с помощью команды:
