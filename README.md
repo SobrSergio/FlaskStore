@@ -1,91 +1,118 @@
-<h1 align="center">SneakerStore on Flask - Магазин кроссовок на Flask</h1>
-<h1>Введение в проект</h2>
-<p>Интернет магазин кроссовок, написанный на Python(Flask).<br><br>
-В проекте есть: <br>
-  <ul dir="auto">
-<li> Полная админка с добавлением товаров, категорий, брендов, вывода заказов.</li>
-<li>Полностью рабочая корзина товаров.</li>
-<li>Пользователи могут добавить товар в корзину, выбрать размер, оформить заказ доставкой/самовызовов.</li>
-<li>Есть система регистрации и логина, для вывода истории заказов и автоматического заполнения формы в оформлении заказа.</li>
-<li>Система "Забыли пароль" через почту.</li>
-<li>Полностью адаптивная верстка, написанная на чистом CSS/HTML</li>
-</ul>
-</p>
 
+# 🛒 Flask Online Store Project
 
-<h1>Скриншоты</h3>
-<img src="https://user-images.githubusercontent.com/107222527/190024346-9be6d33a-68eb-4f09-a4f9-36eb3ea57b4f.png" width=''>
-<img src="https://user-images.githubusercontent.com/107222527/190024375-c580e988-1ea9-4a21-849f-8318084fa171.png" width=''>
-<img src="https://user-images.githubusercontent.com/107222527/190024414-31002f3d-d2ec-4c5c-a38f-c4fc8253c725.png" width=''>
-<img src="https://user-images.githubusercontent.com/107222527/190024427-6f572d80-f58a-4b94-9053-1a5c0ec201ca.png" width=''>
+Добро пожаловать в проект интернет-магазина, написанный на Flask! 🖥️ Это современный и гибкий веб-приложение, позволяющее пользователям регистрироваться, добавлять товары в корзину, оформлять заказы, а также предоставляет мощные возможности администратору для управления магазином.
 
-</div>
+## 🔥 Основные функции проекта
 
-<h1>Запуск проекта</h1>
+- **Полноценная админка** для управления товарами, категориями, брендами, а также для отслеживания заказов.
+- **Полностью рабочая корзина товаров**, где пользователи могут добавлять товары, выбирать размеры и оформлять заказы (доставка или самовывоз).
+- **Система регистрации и авторизации**, которая позволяет пользователям просматривать историю заказов и автоматически заполнять формы при оформлении заказа.
+- **Система восстановления пароля** через электронную почту для обеспечения безопасности аккаунтов пользователей.
+- **Адаптивная верстка**, которая отлично работает на всех устройствах, от компьютеров до смартфонов. 📱💻
 
-<p>1. Ввести свои данные в config (Подключить базу данных, ввести почту для admin). БЕЗ БАЗЗЫ ДАННЫХ САЙТ РАБОТАТЬ НЕ БУДЕТ</p>
+## 🚀 Как установить и запустить проект
 
-<p>2. Поменять sender в utils.py на вашу почту admin.</p>
+1. **Клонируйте репозиторий** на ваш локальный компьютер:
+    ```bash
+    git clone <your-repo-url>
+    ```
 
-<p>Cоздать и активировать виртуальное окружение:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>python -m venv env
-</code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="python -m venv env" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon m-2">
-    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none m-2">
-    <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
-</svg>
-    </clipboard-copy>
-  </div></div>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>venv/scripts/activate
-</code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="venv/scripts/activate" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon m-2">
-    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none m-2">
-    <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
-</svg>
-    </clipboard-copy>
-  </div></div><br>
+2. **Установите все зависимости** с помощью команды:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-<p>Установить зависимости из файла requirements.txt:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>pip install -r requirements.txt
-</code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="pip install -r requirements.txt" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon m-2">
-    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none m-2">
-    <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
-</svg>
-    </clipboard-copy>
-  </div></div><br>
-<p>Войти в папку</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>cd app
-</code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="cd app" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon m-2">
-    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none m-2">
-    <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
-</svg>
-    </clipboard-copy>
-  </div></div><br>
-<p>Запустить проект</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>main.py
-</code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="main.py" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon m-2">
-    <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none m-2">
-    <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
-</svg>
-    </clipboard-copy>
-  </div></div><br>
+3. **Настройте конфигурацию** в `config.py`, подключите базу данных и настроьте почту для отправки писем:
+    ```python
+    class Configuration():
+        DEBUG = True
+        SECRET_KEY = 'YOUR_SECRET_KEY'  # Замените на свой секретный ключ
+        SQLALCHEMY_TRACK_MODIFICATIONS = False
+        SQLALCHEMY_DATABASE_URI = 'postgresql://YourDb'
+        MAIL_SERVER = 'smtp.googlemail.com'
+        MAIL_PORT = 587
+        MAIL_USE_TLS = True
+        MAIL_USERNAME = 'youremail@gmail.com'
+        MAIL_PASSWORD = 'your-email-password'
+        MAIL_DEFAULT_SENDER = 'youremail@gmail.com'
+    ```
 
+4. **Инициализируйте базу данных**:
+    ```bash
+    flask db init
+    flask db migrate
+    flask db upgrade
+    ```
 
+5. **Запустите Flask-приложение**:
+    ```bash
+    flask run
+    ```
+
+Теперь приложение доступно по адресу `http://127.0.0.1:5000/`! 🎉
+
+## 🗂️ Основные маршруты
+
+Вот список ключевых маршрутов проекта:
+
+- `/` — Главная страница с товарами
+- `/product/<product_id>/` — Страница товара
+- `/login/` — Авторизация
+- `/register/` — Регистрация
+- `/profile/<username>/` — Профиль пользователя
+- `/cart/` — Корзина товаров
+- `/cart/order/` — Оформление заказа
+- `/admin/` — Административная панель для управления магазином
+
+## 🛠️ Админ-панель
+
+Администраторы могут управлять магазином через интуитивно понятную панель администрирования:
+
+- Добавление, удаление и редактирование **товаров**, **категорий** и **брендов**.
+- Просмотр и управление **заказами**.
+- Управление пользователями, регистрацией и правами доступа.
+
+### 🔑 Примеры административных маршрутов:
+
+- `/admin/addproduct/` — Добавить новый товар
+- `/admin/allproduct/` — Список всех товаров
+- `/admin/addcategory/` — Добавить категорию
+- `/admin/allorders/` — Просмотр всех заказов
+
+## 📷 Скриншоты
+
+1. **Главная страница** с товарами:
+   ![Главная страница](https://user-images.githubusercontent.com/107222527/190024346-9be6d33a-68eb-4f09-a4f9-36eb3ea57b4f.png)
+   
+2. **Страница товара**:
+   ![Карточка товара](https://user-images.githubusercontent.com/107222527/190024375-c580e988-1ea9-4a21-849f-8318084fa171.png)
+
+3. **Профиль пользователя**:
+   ![Профиль](https://user-images.githubusercontent.com/107222527/190024414-31002f3d-d2ec-4c5c-a38f-c4fc8253c725.png)
+   
+4. **Оформление заказа**:
+   ![Оформление заказа](https://user-images.githubusercontent.com/107222527/190024427-6f572d80-f58a-4b94-9053-1a5c0ec201ca.png)
+
+## ⚙️ Технологии
+
+Проект построен с использованием следующих технологий:
+
+- **Flask** — Микрофреймворк для Python, обеспечивающий быстрый запуск веб-приложений.
+- **Flask-SQLAlchemy** — ORM для работы с базами данных.
+- **Flask-Mail** — Библиотека для работы с почтовыми сервисами (используется для восстановления пароля).
+- **PostgreSQL** — Реляционная база данных.
+- **HTML/CSS** — Адаптивная верстка страниц магазина.
+
+## 📧 Подключение электронной почты
+
+Для работы системы восстановления паролей, нужно настроить SMTP-сервер для отправки писем. В конфигурации `config.py` добавьте свои учетные данные:
+
+```python
+MAIL_SERVER = 'smtp.googlemail.com'
+MAIL_PORT = 587
+MAIL_USE_TLS = True
+MAIL_USERNAME = 'youremail@gmail.com'
+MAIL_PASSWORD = 'your-email-password'
+MAIL_DEFAULT_SENDER = 'youremail@gmail.com'
+```
